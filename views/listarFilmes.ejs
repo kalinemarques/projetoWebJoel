@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de filmes</title>
+</head>
+<body>
+    <header>
+        <h1>Listagem de filmes</h1>
+      
+        </header>
+    <main>
+        <section>
+            <% if(filmes.length>0) { %>
+                <table border="1"> 
+                        <tr>
+                            <th>Título</th>
+                            <th>Diretor</th>
+                            <th>Ano de lançamento</th>
+                            <th>Genero</th>
+                            <th>Duração (minutos)</th>
+                            <th>Sinopse</th>
+                            <th>Avaliação</th>
+                            <th colspan="2">Ações</th>
+                        </tr>
+                  <%  filmes.forEach(a1=>{  %>
+                        <tr>
+                            <td> <%= a1.titulo %> </td>
+                            <td> <%= a1.diretor %> </td>
+                            <td> <%= new Date(a1.ano_lancamento).toLocaleDateString('pt-BR') %> </td>
+                            <td> <%= a1.genero %> </td>
+                            <td> <%= a1.duracao_minutos %> </td>
+                            <td> <%= a1.sinopse %> </td>
+                            <td> <%= a1.avaliacao %> </td>
+                            <td><a href="/filme/editarFilme/<%= a1.id %>">Editar</a></td>
+                            <td><a href="/filme/deletarFilme/<%= a1.id%>">Remover</a></td>
+                        </tr>
+
+                    <% }) %>
+                </table>
+              <% } else { %>
+                    <p>Nenhum registro no Banco de Dados!</p>  
+                <% } %>
+        </section>
+    </main>
+</body>
+</html>

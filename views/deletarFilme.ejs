@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Filme</title>
+</head>
+<body>
+    <% filme.forEach(a1=>{%>
+    <form method="post" action="/filme/deletarFilme/<%= a1.id %>?_method=DELETE">
+        <label for="nome">Título do Filme:</label>
+        <input type="text" name="titulo" id="nome" value="<%= a1.titulo %>"disabled><br>
+
+        <label for="diretor">Diretor</label>:</label>
+        <input type="text" name="diretor" id="diretor" value="<%= a1.diretor %>"disabled><br>
+
+        <label for="ano_lancamento">Ano de lançamento:</label>
+        <input type="number" name="ano_lancamento" id="ano_lancamento"value="<%= a1.ano_lancamento %>"disabled><br>
+
+        <label for="genero">Genero:</label>
+        <input type="text" name="genero" id="genero" value="<%= a1.genero %>"disabled><br>
+
+        <label for="duracao">Duração (minutos):</label>
+        <input type="number" name="duracao" id="duracao_minutos" value="<%= a1.duracao_minutos %>"disabled><br>
+        
+        <label for="sinopse">Sinopse:</label> <br>
+        <input type="text" name="sinopse" id="sinopse" value="<%= a1.sinopse %>"disabled><br>
+
+        <label for="avaliacao">Avaliação:</label>
+        <input type="number" name="avaliacao" id="avaliacao" value="<%= a1.avaliacao %>"disabled><br>
+
+        <input type="submit" name="Excluir" id="Excluir">
+    </form>
+<%})%>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Filme</title>
+</head>
+<body>
+    <!-- const {matricula, nome, email, data_nascimento, turma, fone, sexo} = req.body  -->
+    <% filme.forEach(a1=>{%>
+    <form method="post" action="/filme/editarFilme/<%= a1.id %>?_method=PUT">
+        <label for="nome">Título do Filme:</label>
+        <input type="text" name="título" id="nome" value="<%= a1.titulo %>" ><br>
+
+        <label for="diretor">Diretor</label>:</label>
+        <input type="text" name="diretor" id="diretor" value="<%= a1.diretor %>" ><br>
+
+        <label for="ano_lancamento">Ano de lançamento:</label>
+        <input type="number" name="ano_lancamento" id="ano_lancamento"value="<%= a1.ano_lancamento %>" ><br>
+
+        <label for="genero">Genero:</label>
+        <input type="text" name="genero" id="genero" value="<%= a1.genero %>" ><br>
+
+        <label for="duracao">Duração (minutos):</label>
+        <input type="number" name="duracao_minutos" id="duracao" value="<%= a1.duracao_minutos %>" ><br>
+        
+        <label for="sinopse">Sinopse:</label> <br>
+        <input type="text" name="sinopse" id="sinopse" value="<%= a1.sinopse %>" ><br>
+
+        <label for="avaliacao">Avaliação:</label>
+        <input type="number" name="avaliacao" id="avaliacao" value="<%= a1.avaliacao %>" ><br>
+
+        <input type="submit" name="Cadastrar" id="Cadastrar">
+    </form>
+    <%})%>
+</body>
+</html>
